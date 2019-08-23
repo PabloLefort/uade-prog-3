@@ -10,11 +10,11 @@ def PeakSearch(search_list, low, high):
         low (int): low number of where it starts to compare
         high (int): high number of where it stops to compare
     """
-    size = len(search_list)
+    
     half = int(low + (high - low) / 2)
 
     # Base case when his neighbours are lower
-    if((half == 0 or search_list[half - 1] <= search_list[half]) and (half == size - 1 or search_list[half + 1] <= search_list[half])):
+    if((half == 0 or search_list[half - 1] <= search_list[half]) and (half == len(search_list) - 1 or search_list[half + 1] <= search_list[half])):
         return search_list[half]
 
     # Call to the left part because the left neighbour its greater and must have a peak
