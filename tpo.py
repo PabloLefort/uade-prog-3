@@ -1,17 +1,18 @@
-CITIES = ['BS AS', 'La Plata', 'Corrientes', 'Cordoba', 'Salta', 'Puerto Madryn', 'Neuquen', 'Cachari']
+CITIES = ['BS AS', 'La Plata', 'Corrientes', 'Cordoba', 'Salta', 'Puerto Madryn', 'Neuquen', 'Cachari', 'La Rioja']
 DISTANCES = [
-    [90, 100, 140, 500, 1, 100, 250],
-    [0, 70, 80, 90, 3, 20, 270],
-    [70, 0, 90, 100, 7, 10, 600],
-    [80, 90, 0, 3, 100, 80, 900],
-    [90, 100, 3, 0, 70, 80, 1000],
-    [3, 7, 100, 70, 0, 500, 1500],
-    [20, 10, 80, 80, 500, 0, 3],
-    [270, 600, 900, 1000, 1500, 3, 0]
+    [90, 100, 140, 500, 1, 100, 250, 100],
+    [0, 70, 80, 90, 3, 20, 270, 90],
+    [70, 0, 90, 100, 7, 10, 600, 70],
+    [80, 90, 0, 3, 100, 80, 900, 50],
+    [90, 100, 3, 0, 70, 80, 1000, 1],
+    [3, 7, 100, 70, 0, 500, 1500, 3],
+    [20, 10, 80, 80, 500, 0, 3, 200],
+    [270, 600, 900, 1000, 1500, 3, 0, 100],
+    [90, 70, 50, 1, 3, 200, 100, 0]
 ]
 
 
-def alg_two():
+def alg(CITIES, DISTANCES):
     min_cost = 0
     result = ''
     partials = {}
@@ -61,7 +62,17 @@ def alg_two():
                 min_cost = partials[aux]
 
 
-    print(result)
+    A, B = [], []
+    index = 0
+    for i in result[::-1]:
+        if i == '0':
+            B.append(CITIES[index])
+        else:
+            A.append(CITIES[index])
+        index += 1
+    
+    print('A', A)
+    print('B', B)
     print(min_cost)
 
-alg_two()
+alg(CITIES, DISTANCES)
